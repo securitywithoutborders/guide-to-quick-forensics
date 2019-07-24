@@ -10,5 +10,8 @@ While it is not possible to compile an exhaustive checklist of precise anomalies
 
 ## Considerations on legal litigation
 
-When it comes to legal litigation, for example against the attacker or a company who provided aid to the attacker, there are certain forensic procedures that should normally be respected.
-If you think there are elements in the case you are working on that might lead to a legal investigation, you should consult with local advisors and perhaps seek instead the assistance of an accredited forensics firm.
+Under some circumstances, it is possible that the owner of the device has an interest in pursuing some legal action against the perpetrators of the attack you are documenting, or perhaps the producers of the technology used to conduct it. This could be the case, for example, with victims of domestic abuse, or perhaps with activists seeking to prove some illegal surveillance of their communications.
+
+If you believe the person you are assisting might be interested in any form of legal litigation, especially based on your work, you might need to adapt your methodology. From country to country, from jurisdiction to jurisdiction, rules and best practices for gathering digital evidence admissible in court can vary. Generally, because of [chain of custody](https://en.wikipedia.org/wiki/Chain_of_custody) and to safeguard the integrity of the device, data acquisition (especially from phones) might be heavily restricted.
+
+You should inform yourself about the laws and the standard practices from the jurisdiction you normally operate in. Ideally, you should seek advise from local forensics specialists and maybe even seek the assistance of an accredited forensics firm.

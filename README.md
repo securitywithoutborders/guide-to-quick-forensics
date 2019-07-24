@@ -7,6 +7,8 @@ The purpose of this guide is to provide an introduction to a methodology that co
 
 While the methodology introduced here by no means is sufficient to provide a definitive and conclusive assessment over the cleanliness of a suspected device, it can help at least to identify the more obvious infections. Ultimately, it is up to your intuition and understanding of the context to determine what are the best recommendations to give. Hopefully this guide will help you getting started doing Quick Forensics, and will provide you the tools and techniques to start practicing and developing your skills.
 
+**Note**: this guide is currently under development. You can contribute to this text [here](https://github.com/securitywithoutborders/guide-to-quick-forensics).
+
 ## Why do Quick Forensics?
 
 Learning to perform quick forensics helps determine whether additional resources might be required or not. 
