@@ -155,7 +155,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="methodology.html">
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="methodology.html">
             
                 <a href="methodology.html">
             
@@ -168,12 +173,7 @@
             
         </li>
     
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3" data-path="windows.html">
+        <li class="chapter " data-level="1.4" data-path="windows.html">
             
                 <a href="windows.html">
             
@@ -186,7 +186,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="mac.html">
+        <li class="chapter " data-level="1.5" data-path="mac.html">
             
                 <a href="mac.html">
             
@@ -199,7 +199,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="android.html">
+        <li class="chapter " data-level="1.6" data-path="android.html">
             
                 <a href="android.html">
             
@@ -212,7 +212,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" >
+        <li class="chapter " data-level="1.7" >
             
                 <span>
             
@@ -271,8 +271,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="methodology">Methodology</h1>
-<p>The methodology to do triaging can be quite ad-hoc.
-When it comes to legal litigation, for example against the attacker or a company who provided aid to the attacker, there are certain forensic procedures that should normally be respected.
+<p>The methodology for doing quick forensics can be quite ad-hoc, and eventually with time you will develop your own. This guide should help in this process. Generally, when trying to triage a possible infection, you will like for any anomaly that you are able to identify on the device. Such anomalies, for example, can be:</p>
+<ol>
+<li>Applications and processes running on the device that you and the owner of the device do not recognize. Applications and processes that show some unusual characteristics, such as suspicious names and file locations, or attempts at hiding.</li>
+<li>Because spyware normally would want to be able to survive a shutdown of the device, you will look for applications which maintain persistence over the device and are therefore registered for automatic execution at startup.</li>
+<li>Suspicious network connections to infrastructure and services that you and the owner of the device do not recognize.</li>
+</ol>
+<p>While it is not possible to compile an exhaustive checklist of precise anomalies to look out for, the process of developing a robust quick forensics methodology will require <em>training your eye</em>, by inspecting as many devices you can get your hands. Eventually, you will start recognizing patterns across various operating systems, and become more rapid and efficient at discarding legitimate applications and spotting those that stand out. It takes practice.</p>
+<h2 id="considerations-on-legal-litigation">Considerations on legal litigation</h2>
+<p>When it comes to legal litigation, for example against the attacker or a company who provided aid to the attacker, there are certain forensic procedures that should normally be respected.
 If you think there are elements in the case you are working on that might lead to a legal investigation, you should consult with local advisors and perhaps seek instead the assistance of an accredited forensics firm.</p>
 
                                 
@@ -317,7 +324,7 @@ If you think there are elements in the case you are working on that might lead t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Methodology","level":"1.2.4","depth":2,"next":{"title":"Check Windows Computers","level":"1.3","depth":1,"path":"windows.md","ref":"windows.md","articles":[]},"previous":{"title":"Backup","level":"1.2.3","depth":2,"path":"backup.md","ref":"backup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methodology.md","mtime":"2019-06-06T13:12:11.329Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-19T08:53:20.048Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Methodology","level":"1.3","depth":1,"next":{"title":"Check Windows Computers","level":"1.4","depth":1,"path":"windows.md","ref":"windows.md","articles":[]},"previous":{"title":"Backup","level":"1.2.3","depth":2,"path":"backup.md","ref":"backup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"methodology.md","mtime":"2019-07-24T16:23:58.464Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-24T20:05:16.182Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -325,10 +332,6 @@ If you think there are elements in the case you are working on that might lead t
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
-    
-        
-        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
