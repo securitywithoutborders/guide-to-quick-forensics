@@ -1,6 +1,6 @@
 # Review Programs Launching at Startup
 
-Malware need to find a way to run on start-up when a computer is rebooted, it is thus one of the first thing to check when looking for malicious programs. Windows systems have different ways to have programs running on startup, and malwware often use tricks to appears legitimate and/or avoiding standard autoruns methods.
+Spyware needs to find a way to run on start-up when a computer is rebooted, it is thus one of the first thing to check when looking for malicious programs. Windows systems have different ways to have programs running on startup, and spyware often use tricks to appears legitimate and/or avoiding standard autoruns methods.
 
 The [Sysinternals Autoruns](https://technet.microsoft.com/en-ca/sysinternals/bb963902.aspx) tool allows to list exhaustively the programs running on start-up (you should run this program as Administrator if possible) :
 
@@ -26,10 +26,10 @@ For each of these entries, you should look for :
 * **The path :** any program installed in C:\Users is suspicious (often in C:\Users\USERNAME\AppData), C:\Temp is clearly abnormal, most of the programs should be in C:\Program Files or C:\Program Files (x86)
 
 Common tricks :
-* Many malware will use the Windows program `rundll32.exe` to load the actual malicious file (often a dll file but that can be named otherwise). As rundll32 will be checked on VirusTotal it will avoid the detection
+* Many spyware will use the Windows program `rundll32.exe` to load the actual malicious file (often a dll file but that can be named otherwise). As rundll32 will be checked on VirusTotal it will avoid the detection
 
 Example of suspicious entries :
-* The KeyBoy malware creates a Registry Key in `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\shell` with the value `explorer.exe,C:\Windows\system32\rundll32.exe "%LOCALAPPDATA%\cfs.dal" cfsUpdate`
+* The KeyBoy spyware creates a Registry Key in `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\shell` with the value `explorer.exe,C:\Windows\system32\rundll32.exe "%LOCALAPPDATA%\cfs.dal" cfsUpdate`
 
 ## About VirusTotal
 
@@ -40,6 +40,6 @@ There are two ways to check for a file in VirusTotal :
 * Upload the file to VirusTotal : in that case the file is sent ot VirusTotal which analyze it using multiple antiviruses. Keep in mind that VirusTotal will share this file with its customers, so do not upload any sensitive information.
 
 Regarding results :
-* A file having more than 5 antiviruses detecting it as malicious definitely indicate a malware. You can check for the name of the malware given by antiviruses or comment to have an idea of what kind of malware it can be.
+* A file having more than 5 antiviruses detecting it as malicious definitely indicate a spyware. You can check for the name of the spyware given by antiviruses or comment to have an idea of what kind of spyware it can be.
 * A file with less then 5 antiviruses can be either a malicious file detected y few antiviruses, or a legitimate file with false positive detection
 * A file known by VT without any
