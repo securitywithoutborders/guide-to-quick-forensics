@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Backup · GitBook</title>
+        <title>Checking iOS devices · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="methodology.html" />
+    <link rel="next" href="ios/icloud.md" />
     
     
-    <link rel="prev" href="trust.html" />
+    <link rel="prev" href="android.html" />
     
 
     </head>
@@ -142,7 +142,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="backup.html">
+        <li class="chapter " data-level="1.2.3" data-path="backup.html">
             
                 <a href="backup.html">
             
@@ -270,7 +270,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="ios.html">
+        <li class="chapter active" data-level="1.7" data-path="ios.html">
             
                 <a href="ios.html">
             
@@ -384,7 +384,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Backup</a>
+        <a href="." >Checking iOS devices</a>
     </h1>
 </div>
 
@@ -399,10 +399,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="backup">Backup</h1>
-<p>Although under normal circumstances it shouldn&apos;t happen, there&apos;s always the eventuality that some tools, while performing some aggressive checks, particularly on older or cluttered systems, might cause some instability and crashes. You should be prepared for this eventuality. It might also be the case that if you find the device to be infected, you might want to safekeep it and the owner will want to recover some data.</p>
-<p>It is advisable that before proceeding with the inspection you make sure the owner is aware of any risk of data loss, and that all steps have been taken to preserve at the very least the most critical files. Of course, a full and secure backup of the system is a much more preferable option, but circumstances and time do not always allow for that.</p>
-<p>Along with a USB drive with the collection of tools you might need for the inspection, you should consider always carrying an extra drive with you (perhaps with <a href="https://www.veracrypt.fr/" target="_blank">VeraCrypt</a> or any other file encryption utility you prefer) to be used in case you need to preserve some files from the device.</p>
+                                <h1 id="checking-ios-devices">Checking iOS Devices</h1>
+<p>iOS devices (such as iPhones and iPads) are known to be amongst the most secure and resistent consumer mobile devices available on the market. Apple has built a reputation for itself on uncompromising security for their products, and the numerous improvements and features introduced in iOS devices as made them notoriously hard to break in.</p>
+<p>Unfortunately, <a href="https://nex.sx/blog/2019/05/15/more-on-mobile-security-and-device-integrity.html" target="_blank">this also affects our ability to inspect an iOS device</a> to identify an infection, even with the consent of its owner.</p>
+<p>However, there are some checks we can perform to at least rule out some possibilities and determine how to proceed.</p>
+<p>In this section, we are going to demonstrate the use of the following tools:</p>
+<ul>
+<li><a href="https://github.com/libimobiledevice/" target="_blank">libimobiledevice</a>
+-</li>
+</ul>
 
                                 
                                 </section>
@@ -430,12 +435,12 @@
 
             
                 
-                <a href="trust.html" class="navigation navigation-prev " aria-label="Previous page: Trust">
+                <a href="android.html" class="navigation navigation-prev " aria-label="Previous page: Checking Android devices">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="methodology.html" class="navigation navigation-next " aria-label="Next page: Methodology">
+                <a href="ios/icloud.md" class="navigation navigation-next " aria-label="Next page: Check for iCloud Accounts">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -446,7 +451,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backup","level":"1.2.3","depth":2,"next":{"title":"Methodology","level":"1.3","depth":1,"path":"methodology.md","ref":"methodology.md","articles":[]},"previous":{"title":"Trust","level":"1.2.2","depth":2,"path":"trust.md","ref":"trust.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"backup.md","mtime":"2019-07-24T16:05:56.152Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T15:18:45.320Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Checking iOS devices","level":"1.7","depth":1,"next":{"title":"Check for iCloud Accounts","level":"1.7.1","depth":2,"path":"ios/icloud.md","ref":"ios/icloud.md","articles":[]},"previous":{"title":"Checking Android devices","level":"1.6","depth":1,"path":"android.md","ref":"android.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ios.md","mtime":"2019-08-04T14:46:11.067Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T15:18:45.320Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -5,6 +5,7 @@ The methodology for doing quick forensics can be quite ad-hoc, and eventually wi
 1. Applications and processes running on the device that you and the owner of the device do not recognize. Applications and processes that show some unusual characteristics, such as suspicious names and file locations, or attempts at hiding.
 2. Because spyware normally would want to be able to survive a shutdown of the device, you will look for applications which maintain persistence over the device and are therefore registered for automatic execution at startup.
 3. Suspicious network connections to infrastructure and services that you and the owner of the device do not recognize.
+4. Accounts, profiles or configurations that do not belong to the device owner.
 
 While it is not possible to compile an exhaustive checklist of precise anomalies to look out for, the process of developing a robust quick forensics methodology will require *training your eye*, by inspecting as many devices you can get your hands. Eventually, you will start recognizing patterns across various operating systems, and become more rapid and efficient at discarding legitimate applications and spotting those that stand out. It takes practice.
 
