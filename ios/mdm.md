@@ -8,6 +8,6 @@ Similarly to malicious [iCloud accounts](icloud.md), MDM profiles should be visi
 
 ![](../img/mdm.png)
 
-*Picture from BlackBag Technologies*
+*Image from BlackBag Technologies*
 
 If the device owner does not recognize the MDM profile, and if the MDM profile does not appear to belong to an organization or company the device owner works with, it is possible that the device has been compromised.

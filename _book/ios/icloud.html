@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Check for Mobile Device Management Profiles · GitBook</title>
+        <title>Review iCloud Accounts · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="jailbreaks.md" />
+    <link rel="next" href="mdm.html" />
     
     
-    <link rel="prev" href="icloud.html" />
+    <link rel="prev" href="../ios.html" />
     
 
     </head>
@@ -329,7 +329,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="icloud.html">
+        <li class="chapter active" data-level="1.7.1" data-path="icloud.html">
             
                 <a href="icloud.html">
             
@@ -342,7 +342,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.2" data-path="mdm.html">
+        <li class="chapter " data-level="1.7.2" data-path="mdm.html">
             
                 <a href="mdm.html">
             
@@ -442,7 +442,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Check for Mobile Device Management Profiles</a>
+        <a href=".." >Review iCloud Accounts</a>
     </h1>
 </div>
 
@@ -457,13 +457,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="check-for-mobile-device-management-profiles">Check for Mobile Device Management Profiles</h1>
-<p>Mobile Device Management (MDM) is a system commonly used by enterprises to control a fleet of mobile devices, and be able to, for example, issue configuration updates, install applications, or remotely wipe the data in case the device is lost. <a href="https://blog.talosintelligence.com/2018/07/Mobile-Malware-Campaign-uses-Malicious-MDM.html" target="_blank">Attackers have sometimes been seen abuse MDM</a> in order to maintain control over their victims&apos; phones, and install malicious applications.</p>
-<p>The enrollment normally requires some manual interaction. An infection could happen, for example, if the attackers manage to obtain physical access to device (even for a short time), or by somehow social engineering the victims into enrolling themselves.</p>
-<p>Similarly to malicious <a href="icloud.html">iCloud accounts</a>, MDM profiles should be visible in the settings of the device. If an MDM profile is installed on the device, opening &quot;<em>Settings</em>&quot;, then &quot;<em>General</em>&quot;, should reveal a &quot;<em>Profile</em>&quot; or &quot;<em>Device Management</em>&quot; menu option, typically below the &quot;<em>iTunes Wi-Fi Sync</em>&quot; and &quot;<em>VPN</em>&quot; menu options.</p>
-<p><img src="../img/mdm.png" alt=""></p>
-<p><em>Image from BlackBag Technologies</em></p>
-<p>If the device owner does not recognize the MDM profile, and if the MDM profile does not appear to belong to an organization or company the device owner works with, it is possible that the device has been compromised.</p>
+                                <h1 id="review-icloud-accounts">Review iCloud Accounts</h1>
+<p>Low-sophistication attackers might be able to monitor the activity of an iOS device by adding an additional iCloud account. The account would then normally be configured to automatically backup to iCloud all the data available on the phone (such as pictures, messages, contacts, etc.). The addition of an iCloud account normally requires physical access to the device. Once the iCloud account is enabled on the device, attackers are then simply able to inspect the data directly from iCloud or using an external service that synchronizes with the iCloud backups.</p>
+<p>Checking if an iOS device has unwanted iCloud accounts can be trivially done by opening the <em>Settings</em> and looking at the very top of the menu.</p>
+<h2 id="attackers-using-stolen-credentials">Attackers Using Stolen Credentials</h2>
+<p>Obviously, if attackers have managed to steal the credentials to the legitimate iCloud account of the device owner, it is not necessary for them to add an additional account to the phone. This is also <a href="https://www.vice.com/en_us/article/4xpgnj/paranoid-spouses-can-spy-on-partners-ios-10-devices-with-icloud-backups" target="_blank">a common tactic</a>. While in this case no additional iCloud would be visible in the settings, an unrecognized device might appear to be enabled on the existing account. <a href="https://support.apple.com/en-us/HT205064" target="_blank">Here are instructions on how to review connected devices</a>.</p>
+<p><img src="../img/icloud.jpg" alt=""></p>
+<p><em>Image from Apple</em></p>
 
                                 
                                 </section>
@@ -491,12 +491,12 @@
 
             
                 
-                <a href="icloud.html" class="navigation navigation-prev " aria-label="Previous page: Review iCloud Accounts">
+                <a href="../ios.html" class="navigation navigation-prev " aria-label="Previous page: Checking iOS devices">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="jailbreaks.md" class="navigation navigation-next " aria-label="Next page: Check for Jailbreaks">
+                <a href="mdm.html" class="navigation navigation-next " aria-label="Next page: Check for Mobile Device Management Profiles">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -507,7 +507,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Check for Mobile Device Management Profiles","level":"1.7.2","depth":2,"next":{"title":"Check for Jailbreaks","level":"1.7.3","depth":2,"path":"ios/jailbreaks.md","ref":"ios/jailbreaks.md","articles":[]},"previous":{"title":"Review iCloud Accounts","level":"1.7.1","depth":2,"path":"ios/icloud.md","ref":"ios/icloud.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ios/mdm.md","mtime":"2019-08-04T15:55:04.316Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T15:55:12.905Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Review iCloud Accounts","level":"1.7.1","depth":2,"next":{"title":"Check for Mobile Device Management Profiles","level":"1.7.2","depth":2,"path":"ios/mdm.md","ref":"ios/mdm.md","articles":[]},"previous":{"title":"Checking iOS devices","level":"1.7","depth":1,"path":"ios.md","ref":"ios.md","articles":[{"title":"Review iCloud Accounts","level":"1.7.1","depth":2,"path":"ios/icloud.md","ref":"ios/icloud.md","articles":[]},{"title":"Check for Mobile Device Management Profiles","level":"1.7.2","depth":2,"path":"ios/mdm.md","ref":"ios/mdm.md","articles":[]},{"title":"Check for Jailbreaks","level":"1.7.3","depth":2,"path":"ios/jailbreaks.md","ref":"ios/jailbreaks.md","articles":[]},{"title":"Monitor Network Traffic","level":"1.7.4","depth":2,"path":"network.md","ref":"network.md","articles":[]},{"title":"Extract Data for Further Analysis","level":"1.7.5","depth":2,"path":"ios/extract.md","ref":"ios/extract.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ios/icloud.md","mtime":"2019-08-04T15:54:34.904Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T15:55:12.905Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
