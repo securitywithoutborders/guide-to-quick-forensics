@@ -503,46 +503,37 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="review-programs-launching-at-startup">Review Programs Launching at Startup</h1>
-<p>Spyware needs to find a way to run on start-up when a computer is rebooted, it is thus one of the first thing to check when looking for malicious programs. Windows systems have different ways to have programs running on startup, and spyware often use tricks to appears legitimate and/or avoiding standard autoruns methods.</p>
-<p>The <a href="https://technet.microsoft.com/en-ca/sysinternals/bb963902.aspx" target="_blank">Sysinternals Autoruns</a> tool allows to list exhaustively the programs running on start-up (you should run this program as Administrator if possible) :</p>
-<p><img src="../img/autoruns.png" alt="Autoruns"></p>
-<p>Autoruns embedds a feature to check for binary files on <a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a>, it is a very good way to do a first check on suspicious files (check the &quot;About Virus Total&quot; part after for more information). To enable check on VirusTotal, go in Options &gt; Scan Options and enable &quot;Check VirusTotal.com&quot; (be careful of not enabling &quot;Submit Unknown Files&quot;) :</p>
-<p><img src="../img/autoruns2.png" alt="Autoruns"></p>
-<p>Then Autoruns will take a bit of time to check for all the files on startup and add results under the form <em>X/X</em> where the first X is the number of antiviruses detecting this file as malicious and the second X is the total number of antiviruses checked.</p>
-<p><img src="../img/autoruns3.png" alt="Autoruns"></p>
-<p>Use this analysis to look more closely to :</p>
+<p>Normally, spyware needs to find a way to run on start-up when a computer is restarted. Reviewing applications starting automatically is thus one of the first checks to perform when looking for potential infections. Windows computers have different ways to enable automatic launch, and spyware often use tricks to appear legitimate and/or avoid the most common methods.</p>
+<p><a href="https://technet.microsoft.com/en-ca/sysinternals/bb963902.aspx" target="_blank">Sysinternals Autoruns</a> is a tool that allows to exhaustively list programs running on start-up. If possible, you should run this program as Administrator:</p>
+<p><img src="../img/autoruns.png" alt=""></p>
+<p>All results will be displayed by default in the main tab. Clicking through the other available tabs will filter the results by the respective auto-launch type. The most interesting ones generally would be <code>Logon</code>, <code>Scheduled Tasks</code>, <code>Services</code>.</p>
+<h2 id="looking-for-suspicious-patterns">Looking for suspicious patterns</h2>
+<p>Autoruns does not automatically determine for you which file are malicious and which not. As with the rest of this <a href="methodology.md">methodology</a>, it is necessary for you to eventually become familiar enough with its results to quickly spot any anomalies or entries that you do not recognize. However, Autoruns can provide some useful indications.</p>
+<p>Sometimes, Autoruns might flag a particular row with a red background. These might warrant further inspection, as it might be a sign of an unusual entry. Entries marked with a yellow background instead refer to files that do no longer exist on the computer. These entries are therefore broken.</p>
+<p>Following are some suggestions on patterns to look out for.</p>
+<h3 id="1-verify-image-signatures">1. Verify image signatures</h3>
+<p>In modern versions of Windows, legitimate applications are generally required to be &quot;signed&quot; with a developer certificate. Such certificates allow to verify the producer of a particular program (such as Microsoft, Google, Adobe, or else). Applications that are not signed normally are more controlled and scrutinized by Windows security mechanisms (such as its embedded antivirus, Windows Defender). A useful first check is to verify whether all applications launching automatically are indeed signed, and this can be done by clicking <em>Options</em> &gt; <em>Scan Options</em> and enabling <em>Verify code signatures</em>.</p>
+<p><img src="../img/autoruns5.png" alt=""></p>
+<p>This will relaunch Autoruns&apos; scan and will add a new column called &quot;Publisher&quot;. Correctly signed applications will be marked as &quot;(Verified)&quot;:</p>
+<p><img src="../img/autoruns4.png" alt=""></p>
+<p><strong>Beware</strong>: Not all verified Autorun Entries are necessarily safe. Sometimes attackers purposefully abuse legitimate verified applications in order to appear less suspicious, and use them as launchers to then load and execute malicious code. This is sometimes done using, for example, Microsoft <code>rundll32.exe</code> or other applications affected by what&apos;s known as <a href="https://attack.mitre.org/techniques/T1073/" target="_blank">DLL Sideloading</a>.</p>
+<h3 id="2-check-the-name-of-the-autorun-entry">2. Check the name of the Autorun Entry</h3>
+<p>Autorun Entry show the name that was given to the application by its developers. This information can be faked, but sometimes attackers are lazy enough to either mispell spoofed legitimate names (e.g. &quot;Micorsoft Ofice&quot; or &quot;Crhome&quot;) or to just leave random characters and numbers.</p>
+<h3 id="3-check-the-program-description">3. Check the program description</h3>
+<p>Similarly, this is not a reliable indicator, but legitimate applications should generally have a program description visible.</p>
+<h3 id="4-check-the-image-path">4. Check the Image Path</h3>
+<p>Windows provides some standard folders where legitimate applications are normally installed and run from. Services from the operating system itself are normally located under <code>C:\Windows\</code>, while user-installed applications are generally located under <code>C:\Program Files\</code> or <code>C:\Program Files (x86)\</code>. Because installing programs in those folder should require some confirmation from the user, attackers often place their malicious files in less typical folders, such as <code>C:\Users\&lt;Username&gt;\AppData\</code> or other subfolders in <code>C:\Users\</code>.</p>
+<p>Example of suspicious entries:</p>
 <ul>
-<li>Any file detected as Malicious by at least one antivirus</li>
-<li>Any file unknown by VirusTotal</li>
+<li>The <a href="https://citizenlab.ca/2016/11/parliament-keyboy/" target="_blank">KeyBoy spyware</a> creates a Registry Key in <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\shell</code> with the value <code>explorer.exe,C:\Windows\system32\rundll32.exe &quot;%LOCALAPPDATA%\cfs.dal&quot; cfsUpdate</code></li>
 </ul>
-<p>Then look for suspicious entries manually in tabs <code>Logon</code>, <code>Scheduled Tasks</code>, <code>Services</code>.</p>
-<p>For each of these entries, you should look for :</p>
-<ul>
-<li><strong>The name of the entry :</strong> a random string would be suspicious, or any common name with typo (crhome)</li>
-<li><strong>The description :</strong> most legitimate programs have a description</li>
-<li><strong>The path :</strong> any program installed in C:\Users is suspicious (often in C:\Users\USERNAME\AppData), C:\Temp is clearly abnormal, most of the programs should be in C:\Program Files or C:\Program Files (x86)</li>
-</ul>
-<p>Common tricks :</p>
-<ul>
-<li>Many spyware will use the Windows program <code>rundll32.exe</code> to load the actual malicious file (often a dll file but that can be named otherwise). As rundll32 will be checked on VirusTotal it will avoid the detection</li>
-</ul>
-<p>Example of suspicious entries :</p>
-<ul>
-<li>The KeyBoy spyware creates a Registry Key in <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\shell</code> with the value <code>explorer.exe,C:\Windows\system32\rundll32.exe &quot;%LOCALAPPDATA%\cfs.dal&quot; cfsUpdate</code></li>
-</ul>
-<h2 id="about-virustotal">About VirusTotal</h2>
-<p><a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a> (often called VT) is originally a Spanish company acquired by Google in 2012. Its business model is to provide checking of files by many anviruses for free to everyone, and sell access to this data to security companies. So keep in mind that files uploaded to VirusTotal are <em>not kept confidential</em>.</p>
-<p>There are two ways to check for a file in VirusTotal :</p>
-<ul>
-<li>Check if the fingerprint is known by VirusTotal : this is what is done by default by Sysinternals tools, it means that the file itself is not sent to VirusTotal, but it only check if the file is already known by VT. All Windows system files should be known, an unknown file on startup is definitely suspicious</li>
-<li>Upload the file to VirusTotal : in that case the file is sent ot VirusTotal which analyze it using multiple antiviruses. Keep in mind that VirusTotal will share this file with its customers, so do not upload any sensitive information.</li>
-</ul>
-<p>Regarding results :</p>
-<ul>
-<li>A file having more than 5 antiviruses detecting it as malicious definitely indicate a spyware. You can check for the name of the spyware given by antiviruses or comment to have an idea of what kind of spyware it can be.</li>
-<li>A file with less then 5 antiviruses can be either a malicious file detected y few antiviruses, or a legitimate file with false positive detection</li>
-<li>A file known by VT without any</li>
-</ul>
+<h2 id="looking-up-programs-on-virustotal">Looking up programs on VirusTotal</h2>
+<p>Optionally Autoruns allows to check binary files against <a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a>, which helps to immediately identify any malicious program that is well-known and widely detected by Antivirus software (read more about this in the section below). To enable this check, go in <em>Options</em> &gt; <em>Scan Options</em> and enable &quot;<em>Check VirusTotal.com</em>&quot;. Be careful not to enable &quot;<em>Submit Unknown Files</em>&quot;, as it would make Autoruns automatically upload the local files to the service, rather than just looking up their cryptographic hashes. VirusTotal is a company, now owned by Alphabet (Google&apos;s parent company), and it provides commercial access to its data to security researchers and customers all around the world. Those with access to VirusTotal commercial services are able to look-up and download any uploaded file. Therefore, you might want to avoid inadvertedly submitting any files that might be confidential.</p>
+<p><img src="../img/autoruns2.png" alt=""></p>
+<p>Once the VirusTotal option is enabled, it will take some time for results to appear. Eventually, you should see a VirusTotal column displaying the Antivirus scan results. The results appear as a <em>X/Y</em> value, where <em>X</em> is the number of positive detections and <em>Y</em> is the total amount of Antivirus software the file was scanned with.</p>
+<p><img src="../img/autoruns3.png" alt=""></p>
+<p>If no result is displayed, it means that that particular program has not been previously uploaded to VirusTotal, and it might warrant additional inspection. Sometimes, you wil see some applications with a low detection number (1 or 2): often these are false positives. VirusTotal results showing a higher detection number (for example, 5 and above) is generally a reliable sign that that particular application is malicious. Clicking on the link from the <em>X/Y</em> will open up the browser to the VirusTotal analysis, where you can see more details, such as any malware identifiers used by the Antivirus software supported.</p>
+<p><strong>Please note:</strong> <a href="safety.md">As discussed</a>, under normal circumstances you would prefer to not connect the tested computer to the Internet. Without an Internet connection, you are not able to immediately check with VirusTotal. However, it is possible to save Autoruns results clicking <em>File</em> &gt; <em>Save...</em> and later open the results from a separate computer with Internet connection.</p>
 
                                 
                                 </section>
@@ -586,7 +577,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Review Programs Launching at Startup","level":"1.4.1","depth":2,"next":{"title":"Review Running Processes","level":"1.4.2","depth":2,"path":"windows/processes.md","ref":"windows/processes.md","articles":[]},"previous":{"title":"Checking Windows Computers","level":"1.4","depth":1,"path":"windows.md","ref":"windows.md","articles":[{"title":"Review Programs Launching at Startup","level":"1.4.1","depth":2,"path":"windows/autoruns.md","ref":"windows/autoruns.md","articles":[]},{"title":"Review Running Processes","level":"1.4.2","depth":2,"path":"windows/processes.md","ref":"windows/processes.md","articles":[]},{"title":"Review Network Connections","level":"1.4.3","depth":2,"path":"windows/network.md","ref":"windows/network.md","articles":[]},{"title":"Extract Data for Further Analysis","level":"1.4.4","depth":2,"path":"windows/extract.md","ref":"windows/extract.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"windows/autoruns.md","mtime":"2019-07-25T10:45:22.904Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-04T16:19:19.455Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Review Programs Launching at Startup","level":"1.4.1","depth":2,"next":{"title":"Review Running Processes","level":"1.4.2","depth":2,"path":"windows/processes.md","ref":"windows/processes.md","articles":[]},"previous":{"title":"Checking Windows Computers","level":"1.4","depth":1,"path":"windows.md","ref":"windows.md","articles":[{"title":"Review Programs Launching at Startup","level":"1.4.1","depth":2,"path":"windows/autoruns.md","ref":"windows/autoruns.md","articles":[]},{"title":"Review Running Processes","level":"1.4.2","depth":2,"path":"windows/processes.md","ref":"windows/processes.md","articles":[]},{"title":"Review Network Connections","level":"1.4.3","depth":2,"path":"windows/network.md","ref":"windows/network.md","articles":[]},{"title":"Extract Data for Further Analysis","level":"1.4.4","depth":2,"path":"windows/extract.md","ref":"windows/extract.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"windows/autoruns.md","mtime":"2019-08-06T15:21:30.698Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-06T15:22:29.421Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

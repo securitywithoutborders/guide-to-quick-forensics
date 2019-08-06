@@ -1,45 +1,61 @@
 # Review Programs Launching at Startup
 
-Spyware needs to find a way to run on start-up when a computer is rebooted, it is thus one of the first thing to check when looking for malicious programs. Windows systems have different ways to have programs running on startup, and spyware often use tricks to appears legitimate and/or avoiding standard autoruns methods.
+Normally, spyware needs to find a way to run on start-up when a computer is restarted. Reviewing applications starting automatically is thus one of the first checks to perform when looking for potential infections. Windows computers have different ways to enable automatic launch, and spyware often use tricks to appear legitimate and/or avoid the most common methods.
 
-The [Sysinternals Autoruns](https://technet.microsoft.com/en-ca/sysinternals/bb963902.aspx) tool allows to list exhaustively the programs running on start-up (you should run this program as Administrator if possible) :
+[Sysinternals Autoruns](https://technet.microsoft.com/en-ca/sysinternals/bb963902.aspx) is a tool that allows to exhaustively list programs running on start-up. If possible, you should run this program as Administrator:
 
-![Autoruns](../img/autoruns.png)
+![](../img/autoruns.png)
 
-Autoruns embedds a feature to check for binary files on [VirusTotal](https://www.virustotal.com/gui/home/upload), it is a very good way to do a first check on suspicious files (check the "About Virus Total" part after for more information). To enable check on VirusTotal, go in Options > Scan Options and enable "Check VirusTotal.com" (be careful of not enabling "Submit Unknown Files") :
+All results will be displayed by default in the main tab. Clicking through the other available tabs will filter the results by the respective auto-launch type. The most interesting ones generally would be `Logon`, `Scheduled Tasks`, `Services`.
 
-![Autoruns](../img/autoruns2.png)
 
-Then Autoruns will take a bit of time to check for all the files on startup and add results under the form _X/X_ where the first X is the number of antiviruses detecting this file as malicious and the second X is the total number of antiviruses checked.
+## Looking for suspicious patterns
 
-![Autoruns](../img/autoruns3.png)
+Autoruns does not automatically determine for you which file are malicious and which not. As with the rest of this [methodology](methodology.md), it is necessary for you to eventually become familiar enough with its results to quickly spot any anomalies or entries that you do not recognize. However, Autoruns can provide some useful indications.
 
-Use this analysis to look more closely to :
-* Any file detected as Malicious by at least one antivirus
-* Any file unknown by VirusTotal
+Sometimes, Autoruns might flag a particular row with a red background. These might warrant further inspection, as it might be a sign of an unusual entry. Entries marked with a yellow background instead refer to files that do no longer exist on the computer. These entries are therefore broken.
 
-Then look for suspicious entries manually in tabs `Logon`, `Scheduled Tasks`, `Services`.
+Following are some suggestions on patterns to look out for.
 
-For each of these entries, you should look for :
-* **The name of the entry :** a random string would be suspicious, or any common name with typo (crhome)
-* **The description :** most legitimate programs have a description
-* **The path :** any program installed in C:\Users is suspicious (often in C:\Users\USERNAME\AppData), C:\Temp is clearly abnormal, most of the programs should be in C:\Program Files or C:\Program Files (x86)
+### 1. Verify image signatures
 
-Common tricks :
-* Many spyware will use the Windows program `rundll32.exe` to load the actual malicious file (often a dll file but that can be named otherwise). As rundll32 will be checked on VirusTotal it will avoid the detection
+In modern versions of Windows, legitimate applications are generally required to be "signed" with a developer certificate. Such certificates allow to verify the producer of a particular program (such as Microsoft, Google, Adobe, or else). Applications that are not signed normally are more controlled and scrutinized by Windows security mechanisms (such as its embedded antivirus, Windows Defender). A useful first check is to verify whether all applications launching automatically are indeed signed, and this can be done by clicking *Options* > *Scan Options* and enabling *Verify code signatures*.
 
-Example of suspicious entries :
-* The KeyBoy spyware creates a Registry Key in `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\shell` with the value `explorer.exe,C:\Windows\system32\rundll32.exe "%LOCALAPPDATA%\cfs.dal" cfsUpdate`
+![](../img/autoruns5.png)
 
-## About VirusTotal
+This will relaunch Autoruns' scan and will add a new column called "Publisher". Correctly signed applications will be marked as "(Verified)":
 
-[VirusTotal](https://www.virustotal.com/gui/home/upload) (often called VT) is originally a Spanish company acquired by Google in 2012. Its business model is to provide checking of files by many anviruses for free to everyone, and sell access to this data to security companies. So keep in mind that files uploaded to VirusTotal are _not kept confidential_.
+![](../img/autoruns4.png)
 
-There are two ways to check for a file in VirusTotal :
-* Check if the fingerprint is known by VirusTotal : this is what is done by default by Sysinternals tools, it means that the file itself is not sent to VirusTotal, but it only check if the file is already known by VT. All Windows system files should be known, an unknown file on startup is definitely suspicious
-* Upload the file to VirusTotal : in that case the file is sent ot VirusTotal which analyze it using multiple antiviruses. Keep in mind that VirusTotal will share this file with its customers, so do not upload any sensitive information.
+**Beware**: Not all verified Autorun Entries are necessarily safe. Sometimes attackers purposefully abuse legitimate verified applications in order to appear less suspicious, and use them as launchers to then load and execute malicious code. This is sometimes done using, for example, Microsoft `rundll32.exe` or other applications affected by what's known as [DLL Sideloading](https://attack.mitre.org/techniques/T1073/).
 
-Regarding results :
-* A file having more than 5 antiviruses detecting it as malicious definitely indicate a spyware. You can check for the name of the spyware given by antiviruses or comment to have an idea of what kind of spyware it can be.
-* A file with less then 5 antiviruses can be either a malicious file detected y few antiviruses, or a legitimate file with false positive detection
-* A file known by VT without any
+### 2. Check the name of the Autorun Entry
+
+Autorun Entry show the name that was given to the application by its developers. This information can be faked, but sometimes attackers are lazy enough to either mispell spoofed legitimate names (e.g. "Micorsoft Ofice" or "Crhome") or to just leave random characters and numbers.
+
+### 3. Check the program description
+
+Similarly, this is not a reliable indicator, but legitimate applications should generally have a program description visible.
+
+### 4. Check the Image Path
+
+Windows provides some standard folders where legitimate applications are normally installed and run from. Services from the operating system itself are normally located under `C:\Windows\`, while user-installed applications are generally located under `C:\Program Files\` or `C:\Program Files (x86)\`. Because installing programs in those folder should require some confirmation from the user, attackers often place their malicious files in less typical folders, such as `C:\Users\<Username>\AppData\` or other subfolders in `C:\Users\`.
+
+Example of suspicious entries:
+
+- The [KeyBoy spyware](https://citizenlab.ca/2016/11/parliament-keyboy/) creates a Registry Key in `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\shell` with the value `explorer.exe,C:\Windows\system32\rundll32.exe "%LOCALAPPDATA%\cfs.dal" cfsUpdate`
+
+
+## Looking up programs on VirusTotal
+
+Optionally Autoruns allows to check binary files against [VirusTotal](https://www.virustotal.com/gui/home/upload), which helps to immediately identify any malicious program that is well-known and widely detected by Antivirus software (read more about this in the section below). To enable this check, go in *Options* > *Scan Options* and enable "*Check VirusTotal.com*". Be careful not to enable "*Submit Unknown Files*", as it would make Autoruns automatically upload the local files to the service, rather than just looking up their cryptographic hashes. VirusTotal is a company, now owned by Alphabet (Google's parent company), and it provides commercial access to its data to security researchers and customers all around the world. Those with access to VirusTotal commercial services are able to look-up and download any uploaded file. Therefore, you might want to avoid inadvertedly submitting any files that might be confidential.
+
+![](../img/autoruns2.png)
+
+Once the VirusTotal option is enabled, it will take some time for results to appear. Eventually, you should see a VirusTotal column displaying the Antivirus scan results. The results appear as a *X/Y* value, where *X* is the number of positive detections and *Y* is the total amount of Antivirus software the file was scanned with.
+
+![](../img/autoruns3.png)
+
+If no result is displayed, it means that that particular program has not been previously uploaded to VirusTotal, and it might warrant additional inspection. Sometimes, you wil see some applications with a low detection number (1 or 2): often these are false positives. VirusTotal results showing a higher detection number (for example, 5 and above) is generally a reliable sign that that particular application is malicious. Clicking on the link from the *X/Y* will open up the browser to the VirusTotal analysis, where you can see more details, such as any malware identifiers used by the Antivirus software supported.
+
+**Please note:** [As discussed](safety.md), under normal circumstances you would prefer to not connect the tested computer to the Internet. Without an Internet connection, you are not able to immediately check with VirusTotal. However, it is possible to save Autoruns results clicking *File* > *Save...* and later open the results from a separate computer with Internet connection.
