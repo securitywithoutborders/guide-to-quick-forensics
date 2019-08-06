@@ -22,7 +22,7 @@
 * [Checking iOS Devices](ios.md)
   * [Review iCloud Accounts](ios/icloud.md)
   * [Check for Mobile Device Management Profiles](ios/mdm.md)
-  * [Check for Jailbreaks]()
+  * [Check for Jailbreaks](ios/jailbreaks.md)
   * [Monitor Network Traffic]()
   * [Extract Data for Further Analysis]()
 * [License and Credits](license-credits.md)
