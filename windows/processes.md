@@ -6,14 +6,54 @@ There are a couple of tools available in order to do this.
 
 **Warning:** more sophisticated spyware might be capable of evading this tool by either hiding its own entries from the tree, or by perhaps terminating immediately if they observe any of these tools being launched. In this guide we provide some initial methodology and suggestions to perform an initial assessment. A clean process list is not necessarily a guarantee of a clean system.
 
+Before proceeding with this check, it is advisable that you close all visible running applications, in order to reduce the outputs of the tools you will run to the bare minimum.
+
 ## Process Explorer
 
 [Process Explorer](https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx) is another tool from the [Sysinternals Suite](https://docs.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite) by Microsoft, and it lists all the processes running on the system in a tree:
 
-![processxp](../img/processxp.png)
+![](../img/procexp.png)
 
+The methodology to check for suspicious running processes is somewhat similar to what we described in the [Review Programs Launching at Startup](autoruns.md) section.
 
-Process Explorer should directly check the file hashes on VirusTotal, it is a good first step to identify suspicious processes. Then you should look for :
-* Every program running from user directory (C:\Documents and Settings\USERNAME or C:\Users\USERNAME) is suspicious, especially the programs running from AppData
-* Check for program with a name very close to a legitimate Windows process but with a small difference (lass.exe instead of lsass.exe…)
-* Check for programs with a legitimate windows name (svchost.exe) outside of standard Windows directories
+### 1. Verify image signatures
+
+Similarly to Autoruns, Process Explorer also allows to verify signatures of applications running by clicking *Options* and enabling "*Verify Image Signatures*". The same considerations and warnings we described in the [previous section](autoruns.md) apply here too. Even more so with running processes, the fact that a process application is signed does not necessarily mean it is safe. Malware often makes use of techniques such as [Process Hollowing](https://attack.mitre.org/techniques/T1093/) or [DLL Sideloading](https://attack.mitre.org/techniques/T1073/) in order to execute code from inside the context of a legitimate and signed application in order to thwart detection.
+
+![](../img/procexp2.png)
+
+### 2. Look for Scripts
+
+Attackers these days often make use of Microsoft Windows scripting capabilities, such as PowerShell and Windows Script Host, because of their flexibility and even ability to evade detection. These scripting engines are commonly used by enterprise customers to automate configurations of internal systems. It is less common to see consumer applications use them, therefore any related processes running should be further inspected.
+
+These processes normally would be called `powershell.exe` or `wscript.exe`.
+
+Following is an example of Process Explorer displaying an obviously malicious PowerShell script running on the system:
+
+![](../img/procexp_powershell.png)
+
+Hovering with the cursor over the process name shows the command-line arguments where we can clearly see the script is attempting to download and execute some additional code. Notice also the use of variating lower and upper case, such as "doWnLoAdfile": this is a very basic trick attackers use to evade equally basic detection patterns by security software.
+
+### 3. Look for running DLLs
+
+Malware sometimes also comes in the form of a [Dynamic Link Library (DLL)](https://support.microsoft.com/en-us/help/815065/what-is-a-dll) which, opposite to a standalone application (in other words, a `.exe` file), needs to be launched by a loader. Windows provides a few programs to launch DLLs, commonly `regsvr32.exe` and `rundll32.exe`, which are signed by Microsoft.
+
+Look out for any of those processes running, and try to determine what DLL file they are executing. For example, in the screenshot below, we can see an infected Windows system running a malicious DLL file located under `C:\Users\<Username>\AppData\` using `regsvr32.exe`.
+
+![](../img/procexp_regsvr.png)
+
+### 4. Look for processes of applications that should be visible
+
+Another technique often used by attackers is called [Process Hollowing](https://attack.mitre.org/techniques/T1093/). Process Hollowing consists in launching a legitimate application (such as Internet Explorer or Google Chrome), emptying its memory and replacing it with malicious code, which will then be executed. This is normally done to hide the malicious code, make it appear as a legitimate application (which would then only be an empty shell), evade applications firewall and perhaps evade some other security products.
+
+For exampe, if you see a running `iexplore.exe` process, when there is obviously no open Internet Explorer window, you should consider this a worrying sign.
+
+![](../img/procexp_iexplore.png)
+
+### Optional: 5. Looking up programs on VirusTotal
+
+Similarly to [Autoruns](autoruns.md) section, Process Explorer also offers to look-up running processes on VirusTotal by searching the cryptographic hash of the respective executable files. This can be enabled by clicking *Options* > *VirusTotal.com* and enabling *Check VirusTotal.com*.
+
+![](../img/procexp3.png)
+
+**Please note:** the same considerations and warnings explained in the [previous section](autoruns.md) apply here too. Make sure to read them before proceeding.
