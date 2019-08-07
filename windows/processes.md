@@ -44,7 +44,7 @@ Look out for any of those processes running, and try to determine what DLL file 
 
 ### 4. Look for processes of applications that should be visible
 
-Another technique often used by attackers is called [Process Hollowing](https://attack.mitre.org/techniques/T1093/). Process Hollowing consists in launching a legitimate application (such as Internet Explorer or Google Chrome), emptying its memory and replacing it with malicious code, which will then be executed. This is normally done to hide the malicious code, make it appear as a legitimate application (which would then only be an empty shell), evade applications firewall and perhaps evade some other security products.
+Among the many techniques often used by attackers there is, for example, [Process Hollowing](https://attack.mitre.org/techniques/T1093/). Process Hollowing consists in launching a legitimate application (such as Internet Explorer or Google Chrome), emptying its memory and replacing it with malicious code, which will then be executed. This is normally done to hide the malicious code, make it appear as a legitimate application (which would then only be an empty shell), evade applications firewall and perhaps evade some other security products.
 
 For exampe, if you see a running `iexplore.exe` process, when there is obviously no open Internet Explorer window, you should consider this a worrying sign.
 
@@ -57,3 +57,18 @@ Similarly to [Autoruns](autoruns.md) section, Process Explorer also offers to lo
 ![](../img/procexp3.png)
 
 **Please note:** the same considerations and warnings explained in the [previous section](autoruns.md) apply here too. Make sure to read them before proceeding.
+
+
+## CrowdInspect
+
+[CrowdInspect](https://www.crowdstrike.com/resources/crowdinspect/) is a tool produced by the American security company CrowdStrike. CrowdInspect is very similar to Process Explorer, but it has some advantages. Firstly, the information presented tends to be more compact. Secondly, it does not only show currently live processes, but it also can show processes that have terminated since it launch (that you might have perhaps missed because they executed too quickly). Lastly, it performs a number more checks that Process Explorer currently does not support.
+
+![](../img/crowdinspect.png)
+
+### Check for any process injections
+
+Probably the most interesting feature CrowdInspect introduces, is the ability to identify any [injected processes](https://attack.mitre.org/techniques/T1055/). Process injection is a category of techniques whose objective is run malicious code within the context of a separate, generally legitimate, application (such as `explorer.exe`). Process injection is often used by malware authors in order to obtain additional privileges on the system or, for example, to evade detection.
+
+CrowdInspect will alert you of any injected processes by displaying a visible red dot under the "*Inject*" column. Injected processes are generally a very good indicator that there might be an active infection on the tested computer.
+
+![](../img/crowdinspect_injection.png)
