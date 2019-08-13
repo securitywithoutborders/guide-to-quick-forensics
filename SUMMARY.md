@@ -18,7 +18,7 @@
 * [Checking Android Devices](android.md)
   * [Review installed Applications]()
   * [Monitor Network Traffic]()
-  * [Extract Data for Further Analysis]()
+  * [Extract Data for Further Analysis](android/extract.md)
 * [Checking iOS Devices](ios.md)
   * [Review iCloud Accounts](ios/icloud.md)
   * [Check for Mobile Device Management Profiles](ios/mdm.md)
