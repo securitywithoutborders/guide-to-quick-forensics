@@ -3,7 +3,7 @@
 Often times, members of civil society have the more or less justified suspicion of being surveilled. Perhaps they experienced anomalies with their computers or mobile devices, or they have reasons to believe that some of their communications have been intercepted.
 
 Technologists and first responders working in civil society are often requested assistance with the inspection of human rights defenders' devices.
-The purpose of this guide is to provide an introduction to a methodology that could be useful for the quick assessment of potential infections. 
+The purpose of this guide is to provide an introduction to a methodology that could be useful for the quick assessment of potential infections.
 
 While the methodology introduced here by no means is sufficient to provide a definitive and conclusive assessment over the cleanliness of a suspected device, it can help at least to identify the more obvious infections. Ultimately, it is up to your intuition and understanding of the context to determine what are the best recommendations to give. Hopefully this guide will help you getting started doing Quick Forensics, and will provide you the tools and techniques to start practicing and developing your skills.
 
@@ -11,7 +11,7 @@ While the methodology introduced here by no means is sufficient to provide a def
 
 ## Why do Quick Forensics?
 
-Learning to perform quick forensics helps determine whether additional resources might be required or not. 
+Learning to perform quick forensics helps determine whether additional resources might be required or not.
 
 Learning to triage helps determine whether the case requires additional resources or not.
 Being able to extract relevant data means that in-depth investigators will not need access to the device (at least, not immediately).
