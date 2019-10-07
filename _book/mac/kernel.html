@@ -1,0 +1,614 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Review Kernel Extensions · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="extract.html" />
+    
+    
+    <link rel="prev" href="processes.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preparations.html">
+            
+                <a href="../preparations.html">
+            
+                    
+                    Preparations
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../safety.html">
+            
+                <a href="../safety.html">
+            
+                    
+                    Safety
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../trust.html">
+            
+                <a href="../trust.html">
+            
+                    
+                    Trust
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../backup.html">
+            
+                <a href="../backup.html">
+            
+                    
+                    Backup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../methodology.html">
+            
+                <a href="../methodology.html">
+            
+                    
+                    Methodology
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../windows.html">
+            
+                <a href="../windows.html">
+            
+                    
+                    Checking Windows Computers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../windows/autoruns.html">
+            
+                <a href="../windows/autoruns.html">
+            
+                    
+                    Review Programs Launching at Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../windows/processes.html">
+            
+                <a href="../windows/processes.html">
+            
+                    
+                    Review Running Processes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../windows/network.html">
+            
+                <a href="../windows/network.html">
+            
+                    
+                    Review Network Connections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../windows/extract.html">
+            
+                <a href="../windows/extract.html">
+            
+                    
+                    Extract Data for Further Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac.html">
+            
+                <a href="../mac.html">
+            
+                    
+                    Checking Mac Computers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="autoruns.html">
+            
+                <a href="autoruns.html">
+            
+                    
+                    Review Programs Launching at Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="processes.html">
+            
+                <a href="processes.html">
+            
+                    
+                    Review Running Processes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.3" data-path="kernel.html">
+            
+                <a href="kernel.html">
+            
+                    
+                    Review Kernel Extensions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="extract.html">
+            
+                <a href="extract.html">
+            
+                    
+                    Extract Data for Further Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../android.html">
+            
+                <a href="../android.html">
+            
+                    
+                    Checking Android Devices
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../android/applications.html">
+            
+                <a href="../android/applications.html">
+            
+                    
+                    Review installed Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" >
+            
+                <span>
+            
+                    
+                    Monitor Network Traffic
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../android/extract.html">
+            
+                <a href="../android/extract.html">
+            
+                    
+                    Extract Data for Further Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ios.html">
+            
+                <a href="../ios.html">
+            
+                    
+                    Checking iOS Devices
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ios/icloud.html">
+            
+                <a href="../ios/icloud.html">
+            
+                    
+                    Review iCloud Accounts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ios/mdm.html">
+            
+                <a href="../ios/mdm.html">
+            
+                    
+                    Check for Mobile Device Management Profiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ios/jailbreaks.html">
+            
+                <a href="../ios/jailbreaks.html">
+            
+                    
+                    Check for Jailbreaks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" >
+            
+                <span>
+            
+                    
+                    Monitor Network Traffic
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ios/extract.html">
+            
+                <a href="../ios/extract.html">
+            
+                    
+                    Extract Data for Further Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../license-credits.html">
+            
+                <a href="../license-credits.html">
+            
+                    
+                    License and Credits
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Review Kernel Extensions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="review-kernel-extensions">Review Kernel Extensions</h1>
+<p>Kernel extensions (often called kexts) are programs extending the features of the MacOS kernel and as such they are running with the highest privilege, which make them interesting for malware. The tool <a href="https://objective-see.com/products/kextviewr.html" target="_blank">KextViewr</a> developed by Objective-See allows to list all loaded kernel extensions.</p>
+<h2 id="launching-kext-viewer">Launching Kext Viewer</h2>
+<p>To launch KextViewr, download it first from <a href="https://objective-see.com/products/kextviewr.html" target="_blank">its official page</a>. Then extract the program from the archive and double click on it :</p>
+<p><img src="../img/kextviewer1.png" alt=""></p>
+<h2 id="analyzing-results">Analyzing Results</h2>
+<h3 id="1-verify-image-signatures">1. Verify Image Signatures</h3>
+<p>Similarly than with other tools, KextViewr displays the signature status with a icon near the name, a green locked icons <img src="../img/signedApple.png" alt=""> means that the extension is signed by Apple, a closed black lock <img src="../img/signed.png" alt=""> means that the extension is signed by another company while an open orange lock <img src="../img/unsigned.png" alt=""> means that the extension is not signed.</p>
+<p>To view only 3rd party kernel extensions, you can uncheck the <code>Show OS Kexts</code> checkbox at the bottom of KextViewr window.</p>
+<p><img src="../img/kextviewer2.png" alt=""></p>
+<h3 id="2-check-program-names-paths">2. Check Program Names Paths</h3>
+<p>As with previous steps, you should check kexts name and paths. The name should give you an indication of the utility of the kext, any typo or random string here is suspicious.</p>
+<p>For the extension paths, OS Kexts should run from <code>/System</code> while non-OS Kexts should run from <code>/Library</code>.</p>
+<h3 id="3-check-virustotal-scan-results">3. Check VirusTotal Scan Results</h3>
+<p>KextViewr also checks file fingerprint on VirusTotal. On the right of each task running, you will see two numbers representing first the number of antiviruses that identified this file as malicious and then the total number of antiviruses tested. An question mark will appear if this program is not known by VirusTotal.</p>
+<p>You should investigate further any task identified by at least one antivirus as malicious or not known by VirusTotal.</p>
+<p><strong>Please note:</strong> the same considerations and warnings explained in the <a href="autoruns.html">previous section</a> apply here too. Make sure to read them before proceeding.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="processes.html" class="navigation navigation-prev " aria-label="Previous page: Review Running Processes">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="extract.html" class="navigation navigation-next " aria-label="Next page: Extract Data for Further Analysis">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Review Kernel Extensions","level":"1.5.3","depth":2,"next":{"title":"Extract Data for Further Analysis","level":"1.5.4","depth":2,"path":"mac/extract.md","ref":"mac/extract.md","articles":[]},"previous":{"title":"Review Running Processes","level":"1.5.2","depth":2,"path":"mac/processes.md","ref":"mac/processes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"mac/kernel.md","mtime":"2019-10-07T16:58:55.523Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-07T16:59:19.124Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
