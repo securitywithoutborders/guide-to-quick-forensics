@@ -297,7 +297,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../mac/extract.html">
+        <li class="chapter " data-level="1.5.4" data-path="../mac/network.html">
+            
+                <a href="../mac/network.html">
+            
+                    
+                    Review Network Connections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac/extract.html">
             
                 <a href="../mac/extract.html">
             
@@ -526,14 +539,14 @@
 <p>For example, in the screenshot above we can see a running <code>iexplore.exe</code> process that not only has been flagged as <em>injected</em>, but seems to be actively attempting to connect to the Remote IP <code>216.6.0.28</code>. Because there is no visible Internet Explorer running on the system it is definitely suspicious to see active network connections from it. TCPView would appear like following on the same infected system:</p>
 <p><img src="../img/tcpview_infected.png" alt=""></p>
 <p>(Note: these tools show display attempted connections to remote locations even if the computer is at the moment disconnected from the Internet).</p>
-<p>When you are suspicious of an active connection, you can (preferably from a separate computer) look up the IP address and try to determine who it belongs to and whether it is known to be good or bad. For example, a simple WHOIS lookup for that IP address would return:</p>
+<p>When you are suspicious of an active connection, you can (preferably from a separate computer) look up the IP address and try to determine who it belongs to and whether it is known to be good or bad, using for instance online tools like <a href="https://centralops.net/co/" target="_blank">Central Ops</a> or <a href="https://ipinfo.io/" target="_blank">ipinfo</a>. For example, a simple WHOIS lookup for that IP address would return:</p>
 <pre><code>NetRange:       216.6.0.0 - 216.6.1.255
 CIDR:           216.6.0.0/23
 NetName:        SYRIAN-5
 NetHandle:      NET-216-6-0-0-2
 Parent:         TATAC-ARIN-9 (NET-216-6-0-0-1)
 NetType:        Reassigned
-OriginAS:       
+OriginAS:
 Organization:   STE (Syrian Telecommunications Establishment) (SSTE)
 RegDate:        2005-07-21
 Updated:        2005-07-21
@@ -546,8 +559,8 @@ OrgId:          SSTE
 Address:        Fayz Mansour St
 Address:        STE Building
 City:           Damascus
-StateProv:      
-PostalCode:     
+StateProv:
+PostalCode:
 Country:        SY
 RegDate:        2005-07-21
 Updated:        2011-09-24
@@ -597,7 +610,7 @@ Ref:            https://rdap.arin.net/registry/entity/SSTE
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Review Network Connections","level":"1.4.3","depth":2,"next":{"title":"Extract Data for Further Analysis","level":"1.4.4","depth":2,"path":"windows/extract.md","ref":"windows/extract.md","articles":[]},"previous":{"title":"Review Running Processes","level":"1.4.2","depth":2,"path":"windows/processes.md","ref":"windows/processes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"windows/network.md","mtime":"2019-09-24T14:41:41.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-07T16:59:19.124Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Review Network Connections","level":"1.4.3","depth":2,"next":{"title":"Extract Data for Further Analysis","level":"1.4.4","depth":2,"path":"windows/extract.md","ref":"windows/extract.md","articles":[]},"previous":{"title":"Review Running Processes","level":"1.4.2","depth":2,"path":"windows/processes.md","ref":"windows/processes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"windows/network.md","mtime":"2019-10-14T09:39:02.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-14T09:44:09.047Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

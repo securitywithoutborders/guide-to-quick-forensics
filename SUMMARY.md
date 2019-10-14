@@ -15,6 +15,7 @@
   * [Review Programs Launching at Startup](mac/autoruns.md)
   * [Review Running Processes](mac/processes.md)
   * [Review Kernel Extensions](mac/kernel.md)
+  * [Review Network Connections](mac/network.md)
   * [Extract Data for Further Analysis](mac/extract.md)
 * [Checking Android Devices](android.md)
   * [Review installed Applications](android/applications.md)

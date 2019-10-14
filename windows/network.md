@@ -20,7 +20,7 @@ For example, in the screenshot above we can see a running `iexplore.exe` process
 
 (Note: these tools show display attempted connections to remote locations even if the computer is at the moment disconnected from the Internet).
 
-When you are suspicious of an active connection, you can (preferably from a separate computer) look up the IP address and try to determine who it belongs to and whether it is known to be good or bad. For example, a simple WHOIS lookup for that IP address would return:
+When you are suspicious of an active connection, you can (preferably from a separate computer) look up the IP address and try to determine who it belongs to and whether it is known to be good or bad, using for instance online tools like [Central Ops](https://centralops.net/co/) or [ipinfo](https://ipinfo.io/). For example, a simple WHOIS lookup for that IP address would return:
 
 ```
 NetRange:       216.6.0.0 - 216.6.1.255
@@ -29,7 +29,7 @@ NetName:        SYRIAN-5
 NetHandle:      NET-216-6-0-0-2
 Parent:         TATAC-ARIN-9 (NET-216-6-0-0-1)
 NetType:        Reassigned
-OriginAS:       
+OriginAS:
 Organization:   STE (Syrian Telecommunications Establishment) (SSTE)
 RegDate:        2005-07-21
 Updated:        2005-07-21
@@ -42,8 +42,8 @@ OrgId:          SSTE
 Address:        Fayz Mansour St
 Address:        STE Building
 City:           Damascus
-StateProv:      
-PostalCode:     
+StateProv:
+PostalCode:
 Country:        SY
 RegDate:        2005-07-21
 Updated:        2011-09-24

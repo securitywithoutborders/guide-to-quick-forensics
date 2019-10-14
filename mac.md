@@ -4,6 +4,7 @@ In this section we will go through some of the basic steps to take when checking
 
 - [KnockKnock](https://objective-see.com/products/knockknock.html) developed by Objective-See
 - [TaskExplorer](https://objective-see.com/products/taskexplorer.html) developed by Objective-See
-- [KextViewr](https://objective-see.com/products/kextviewr.html) developed by Objective-Se
+- [KextViewr](https://objective-see.com/products/kextviewr.html) developed by Objective-See
+- [Netiquette](https://objective-see.com/products/netiquette.html) developed by Objective-See
 - [AutoMacTC](https://www.crowdstrike.com/blog/automating-mac-forensic-triage/) developed by CrowdStrike
 
