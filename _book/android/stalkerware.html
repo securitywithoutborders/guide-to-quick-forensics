@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Extract Data for Further Analysis · GitBook</title>
+        <title>Optional : Check for Indicators of Stalkerware Installation · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../mac.html" />
+    <link rel="next" href="../ios.html" />
     
     
-    <link rel="prev" href="network.html" />
+    <link rel="prev" href="extract.html" />
     
 
     </head>
@@ -187,9 +187,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="autoruns.html">
+        <li class="chapter " data-level="1.4.1" data-path="../windows/autoruns.html">
             
-                <a href="autoruns.html">
+                <a href="../windows/autoruns.html">
             
                     
                     Review Programs Launching at Startup
@@ -200,9 +200,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="processes.html">
+        <li class="chapter " data-level="1.4.2" data-path="../windows/processes.html">
             
-                <a href="processes.html">
+                <a href="../windows/processes.html">
             
                     
                     Review Running Processes
@@ -213,9 +213,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="network.html">
+        <li class="chapter " data-level="1.4.3" data-path="../windows/network.html">
             
-                <a href="network.html">
+                <a href="../windows/network.html">
             
                     
                     Review Network Connections
@@ -226,9 +226,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="extract.html">
+        <li class="chapter " data-level="1.4.4" data-path="../windows/extract.html">
             
-                <a href="extract.html">
+                <a href="../windows/extract.html">
             
                     
                     Extract Data for Further Analysis
@@ -342,9 +342,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../android/applications.html">
+        <li class="chapter " data-level="1.6.1" data-path="applications.html">
             
-                <a href="../android/applications.html">
+                <a href="applications.html">
             
                     
                     Review installed Applications
@@ -355,9 +355,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../android/root.html">
+        <li class="chapter " data-level="1.6.2" data-path="root.html">
             
-                <a href="../android/root.html">
+                <a href="root.html">
             
                     
                     Check if the Phone is Rooted
@@ -368,9 +368,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="../android/network.html">
+        <li class="chapter " data-level="1.6.3" data-path="network.html">
             
-                <a href="../android/network.html">
+                <a href="network.html">
             
                     
                     Monitor Network Traffic
@@ -381,9 +381,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../android/extract.html">
+        <li class="chapter " data-level="1.6.4" data-path="extract.html">
             
-                <a href="../android/extract.html">
+                <a href="extract.html">
             
                     
                     Extract Data for Further Analysis
@@ -394,9 +394,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.5" data-path="../android/stalkerware.html">
+        <li class="chapter active" data-level="1.6.5" data-path="stalkerware.html">
             
-                <a href="../android/stalkerware.html">
+                <a href="stalkerware.html">
             
                     
                     Optional : Check for Indicators of Stalkerware Installation
@@ -539,7 +539,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Extract Data for Further Analysis</a>
+        <a href=".." >Optional : Check for Indicators of Stalkerware Installation</a>
     </h1>
 </div>
 
@@ -554,20 +554,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="extract-data-for-further-analysis">Extract Data for Further Analysis</h1>
-<p><a href="https://github.com/botherder/snoopdigg" target="_blank">Snoopdigg</a> is a tool that allows to dump startup information and actual processes, along with memory for further analysis. It is really helpful for instance if you do not have time to check for everything on the computer and want to double check if there is anything suspicious later on.</p>
-<p>You should run this program from a USB key with enough storage space, double click on the binary file and follow the instructions.</p>
-<p><img src="../img/snoopdigg1.png" alt="snoopdigg"></p>
-<p>Unless you have a good reason to do so, it is recommended not to take a memory snapshot as it is contains a lot of private information (it may contains passwords for instance).</p>
-<p><img src="../img/snoopdigg2.png" alt="snoopdigg"></p>
-<p>Once finished, it will create a folder named acquisitions, with a subfolder based on computer name and date, which contains :</p>
-<ul>
-<li>A <code>profile.json</code> file containing basic information on the computer system.</li>
-<li>A <code>processlist.json</code> file containing a list of running processes.</li>
-<li>An <code>autoruns.json</code> file containing a list of all items with persistence on the system.</li>
-<li>An <code>autoruns/</code> folder containing copies of the files and executables marked for persistence in the previous JSON file.</li>
-<li>If requested, a <code>memory/</code> folder will contain a physical memory dump as well as some metadata.</li>
-</ul>
+                                <h1 id="optional--check-for-indicators-of-stalkerware-installation">Optional : Check for Indicators of Stalkerware Installation</h1>
+<p>Stalkerware are malicious applications used in the context of Intimate Partner Violence. One of the difference with classic android malware is that they are installed through a physical access to the smartphone. Because of this, the installation requires some changes on the Android system that can often be identified after.</p>
+<h2 id="check-if-installation-from-unknown-sources-is-authorized">Check if Installation from Unknown Sources is Authorized</h2>
+<p>Stalkerware applications are installed directly from the application file (APK), which is by default forbidden by Android. To install the application, the person needs to allow the installation from Unknown Sources.</p>
+<p>Before Android 8 &quot;Oreo&quot;, this feature was for the entire phone. If you have a phone before Android 8, go to <strong>Settings &gt; Security</strong> and check if <strong>Unknown Sources</strong> is enabled.</p>
+<p><img src="../img/unknown_sources.png" alt="unknown_sources.png"></p>
+<p>After Android 8, this feature is enabled or disabled per application. Go to <strong>Settings &gt; Biometrics and security &gt; Install unknown apps</strong> to see the list of applications allowed to install untrusted applications.</p>
+<p><img src="../img/unknown_sources2.jpg" alt="unknown_sources.png"></p>
+<p>Any application in this list is suspicious, especially browsers.</p>
+<h2 id="check-if-google-play-protect-is-disabled">Check if Google Play Protect is Disabled</h2>
+<p>Google Play Protect is an automated detection of malicious applications developed and maintained by Google as part of their Google Play Services. This application is often disabled during the installation of a stalkerware because it can detect and remove the stalkerware application.</p>
+<p>To check if this setting is disabled, you should check either in <strong>Settings &gt; Security &gt; Scan Devices for Security Threats</strong> or in <strong>Settings &gt; Security &gt; Google Play Protect</strong>.</p>
+<p><img src="../img/androidscan.png" alt="Android Scan"></p>
+<h2 id="check-if-the-phone-is-rooted">Check if the Phone is Rooted</h2>
+<p>See <a href="root.html">this other part of this guide</a> to check if the phone is rooted.</p>
 
                                 
                                 </section>
@@ -595,12 +596,12 @@
 
             
                 
-                <a href="network.html" class="navigation navigation-prev " aria-label="Previous page: Review Network Connections">
+                <a href="extract.html" class="navigation navigation-prev " aria-label="Previous page: Extract Data for Further Analysis">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../mac.html" class="navigation navigation-next " aria-label="Next page: Checking Mac Computers">
+                <a href="../ios.html" class="navigation navigation-next " aria-label="Next page: Checking iOS Devices">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -611,7 +612,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Extract Data for Further Analysis","level":"1.4.4","depth":2,"next":{"title":"Checking Mac Computers","level":"1.5","depth":1,"path":"mac.md","ref":"mac.md","articles":[{"title":"Review Programs Launching at Startup","level":"1.5.1","depth":2,"path":"mac/autoruns.md","ref":"mac/autoruns.md","articles":[]},{"title":"Review Running Processes","level":"1.5.2","depth":2,"path":"mac/processes.md","ref":"mac/processes.md","articles":[]},{"title":"Review Kernel Extensions","level":"1.5.3","depth":2,"path":"mac/kernel.md","ref":"mac/kernel.md","articles":[]},{"title":"Review Network Connections","level":"1.5.4","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},{"title":"Extract Data for Further Analysis","level":"1.5.5","depth":2,"path":"mac/extract.md","ref":"mac/extract.md","articles":[]}]},"previous":{"title":"Review Network Connections","level":"1.4.3","depth":2,"path":"windows/network.md","ref":"windows/network.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"windows/extract.md","mtime":"2019-10-07T16:06:30.628Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-23T01:11:17.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Optional : Check for Indicators of Stalkerware Installation","level":"1.6.5","depth":2,"next":{"title":"Checking iOS Devices","level":"1.7","depth":1,"path":"ios.md","ref":"ios.md","articles":[{"title":"Review iCloud Accounts","level":"1.7.1","depth":2,"path":"ios/icloud.md","ref":"ios/icloud.md","articles":[]},{"title":"Check for Mobile Device Management Profiles","level":"1.7.2","depth":2,"path":"ios/mdm.md","ref":"ios/mdm.md","articles":[]},{"title":"Check for Jailbreaks","level":"1.7.3","depth":2,"path":"ios/jailbreaks.md","ref":"ios/jailbreaks.md","articles":[]},{"title":"Monitor Network Traffic","level":"1.7.4","depth":2,"path":"ios/network.md","ref":"ios/network.md","articles":[]},{"title":"Extract Data for Further Analysis","level":"1.7.5","depth":2,"path":"ios/extract.md","ref":"ios/extract.md","articles":[]}]},"previous":{"title":"Extract Data for Further Analysis","level":"1.6.4","depth":2,"path":"android/extract.md","ref":"android/extract.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"android/stalkerware.md","mtime":"2019-10-22T22:44:59.410Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-23T01:11:17.817Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

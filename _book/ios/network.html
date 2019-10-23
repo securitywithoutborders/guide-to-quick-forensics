@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Extract Data for Further Analysis · GitBook</title>
+        <title>Monitor Network Traffic · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../mac.html" />
+    <link rel="next" href="extract.html" />
     
     
-    <link rel="prev" href="network.html" />
+    <link rel="prev" href="jailbreaks.html" />
     
 
     </head>
@@ -187,9 +187,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="autoruns.html">
+        <li class="chapter " data-level="1.4.1" data-path="../windows/autoruns.html">
             
-                <a href="autoruns.html">
+                <a href="../windows/autoruns.html">
             
                     
                     Review Programs Launching at Startup
@@ -200,9 +200,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="processes.html">
+        <li class="chapter " data-level="1.4.2" data-path="../windows/processes.html">
             
-                <a href="processes.html">
+                <a href="../windows/processes.html">
             
                     
                     Review Running Processes
@@ -213,9 +213,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="network.html">
+        <li class="chapter " data-level="1.4.3" data-path="../windows/network.html">
             
-                <a href="network.html">
+                <a href="../windows/network.html">
             
                     
                     Review Network Connections
@@ -226,9 +226,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="extract.html">
+        <li class="chapter " data-level="1.4.4" data-path="../windows/extract.html">
             
-                <a href="extract.html">
+                <a href="../windows/extract.html">
             
                     
                     Extract Data for Further Analysis
@@ -426,9 +426,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../ios/icloud.html">
+        <li class="chapter " data-level="1.7.1" data-path="icloud.html">
             
-                <a href="../ios/icloud.html">
+                <a href="icloud.html">
             
                     
                     Review iCloud Accounts
@@ -439,9 +439,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="../ios/mdm.html">
+        <li class="chapter " data-level="1.7.2" data-path="mdm.html">
             
-                <a href="../ios/mdm.html">
+                <a href="mdm.html">
             
                     
                     Check for Mobile Device Management Profiles
@@ -452,9 +452,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="../ios/jailbreaks.html">
+        <li class="chapter " data-level="1.7.3" data-path="jailbreaks.html">
             
-                <a href="../ios/jailbreaks.html">
+                <a href="jailbreaks.html">
             
                     
                     Check for Jailbreaks
@@ -465,9 +465,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="../ios/network.html">
+        <li class="chapter active" data-level="1.7.4" data-path="network.html">
             
-                <a href="../ios/network.html">
+                <a href="network.html">
             
                     
                     Monitor Network Traffic
@@ -478,9 +478,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.5" data-path="../ios/extract.html">
+        <li class="chapter " data-level="1.7.5" data-path="extract.html">
             
-                <a href="../ios/extract.html">
+                <a href="extract.html">
             
                     
                     Extract Data for Further Analysis
@@ -539,7 +539,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Extract Data for Further Analysis</a>
+        <a href=".." >Monitor Network Traffic</a>
     </h1>
 </div>
 
@@ -554,20 +554,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="extract-data-for-further-analysis">Extract Data for Further Analysis</h1>
-<p><a href="https://github.com/botherder/snoopdigg" target="_blank">Snoopdigg</a> is a tool that allows to dump startup information and actual processes, along with memory for further analysis. It is really helpful for instance if you do not have time to check for everything on the computer and want to double check if there is anything suspicious later on.</p>
-<p>You should run this program from a USB key with enough storage space, double click on the binary file and follow the instructions.</p>
-<p><img src="../img/snoopdigg1.png" alt="snoopdigg"></p>
-<p>Unless you have a good reason to do so, it is recommended not to take a memory snapshot as it is contains a lot of private information (it may contains passwords for instance).</p>
-<p><img src="../img/snoopdigg2.png" alt="snoopdigg"></p>
-<p>Once finished, it will create a folder named acquisitions, with a subfolder based on computer name and date, which contains :</p>
+                                <h1 id="monitor-network-traffic">Monitor Network Traffic</h1>
+<p>Monitoring network traffic from a phone is one of the best way to identify malicious activity without interacting with the mobile phone.</p>
+<h2 id="monitor-network-activity-from-a-wifi-router">Monitor Network Activity from a Wifi Router</h2>
+<p>One of the easiest way to monitor the network traffic from your phone is to record the traffic directly from a WiFi router used by your mobile phone. Depending on your WiFi router, it may be possible to record traffic directly from it (using a tool like <a href="https://www.tcpdump.org/" target="_blank">tcpdump</a>).</p>
+<p>If your WiFi router does not support this option, you can easily build a router using  a <a href="https://www.raspberrypi.org/" target="_blank">Raspberry Pi</a> an the software <a href="https://raspap.com/" target="_blank">RaspAP</a> (see <a href="https://howtoraspberrypi.com/create-a-wi-fi-hotspot-in-less-than-10-minutes-with-pi-raspberry/" target="_blank">here</a> for a tutorial on how to install it).</p>
+<p>Once installed, you can connect to the router using ssh and start capturing the traffic using <a href="https://www.tcpdump.org/" target="_blank">tcpdump</a>. Then connect your mobile phone to this wifi network and record the traffic to 30 minutes to one hour.</p>
+<p>After the end of the recording, you can downloading the pcap file on your computer and review the network traffic using <a href="https://www.wireshark.org/" target="_blank">WireShark</a>. Check especially the following elements :</p>
 <ul>
-<li>A <code>profile.json</code> file containing basic information on the computer system.</li>
-<li>A <code>processlist.json</code> file containing a list of running processes.</li>
-<li>An <code>autoruns.json</code> file containing a list of all items with persistence on the system.</li>
-<li>An <code>autoruns/</code> folder containing copies of the files and executables marked for persistence in the previous JSON file.</li>
-<li>If requested, a <code>memory/</code> folder will contain a physical memory dump as well as some metadata.</li>
+<li>Connections to IP addresses without DNS requests</li>
+<li>Connections to domains that are not listed in <a href="https://www.alexa.com/siteinfo" target="_blank">Alexa Top lists</a></li>
+<li>Connections on ports other than 80 and 443</li>
 </ul>
+<h2 id="use-civicsphere-emergency-vpn">Use CivicSphere Emergency VPN</h2>
+<p>The <a href="https://www.civilsphereproject.org/what-we-do" target="_blank">Civil Sphere Project</a>, an organisation developed from the <a href="https://www.stratosphereips.org/" target="_blank">Stratosphere Research Laboratory</a> at the Czech Technical University in Prague, offers an <a href="https://www.civilsphereproject.org/emergency-vpn" target="_blank">Emergency VPN</a> as a service to identify compromised devices.</p>
+<p>The Emergency VPN service allows to analyze and identify suspicious traffic from a mobile device for journalists and NGOs. <a href="https://www.civilsphereproject.org/get-started" target="_blank">On demand</a>, the Civil Sphere team will send you credentials to log-in to their VPN with your phone. While using their VPN, they will record all the traffic coming out of your phone for a maximum of three days. At the end of the recording, they will analyze the traffic using automated and manual techniques in order to identify malicious activity or insecurities of applications used, and provide you the result of the analysis by email.</p>
+<p><img src="../img/emergencyvpn.png" alt="vpn"></p>
+<p>One of the limitation of this technique is that you have to provide network traffic from your mobile phone to a third party organisation (Civil Sphere), you can <a href="https://www.civilsphereproject.org/get-started" target="_blank">contact them</a> to have more information about how this data is stored and used.</p>
+<p>Check <a href="https://www.civilsphereproject.org/emergency-vpn" target="_blank">their website</a> for more information.</p>
 
                                 
                                 </section>
@@ -595,12 +599,12 @@
 
             
                 
-                <a href="network.html" class="navigation navigation-prev " aria-label="Previous page: Review Network Connections">
+                <a href="jailbreaks.html" class="navigation navigation-prev " aria-label="Previous page: Check for Jailbreaks">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../mac.html" class="navigation navigation-next " aria-label="Next page: Checking Mac Computers">
+                <a href="extract.html" class="navigation navigation-next " aria-label="Next page: Extract Data for Further Analysis">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -611,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Extract Data for Further Analysis","level":"1.4.4","depth":2,"next":{"title":"Checking Mac Computers","level":"1.5","depth":1,"path":"mac.md","ref":"mac.md","articles":[{"title":"Review Programs Launching at Startup","level":"1.5.1","depth":2,"path":"mac/autoruns.md","ref":"mac/autoruns.md","articles":[]},{"title":"Review Running Processes","level":"1.5.2","depth":2,"path":"mac/processes.md","ref":"mac/processes.md","articles":[]},{"title":"Review Kernel Extensions","level":"1.5.3","depth":2,"path":"mac/kernel.md","ref":"mac/kernel.md","articles":[]},{"title":"Review Network Connections","level":"1.5.4","depth":2,"path":"mac/network.md","ref":"mac/network.md","articles":[]},{"title":"Extract Data for Further Analysis","level":"1.5.5","depth":2,"path":"mac/extract.md","ref":"mac/extract.md","articles":[]}]},"previous":{"title":"Review Network Connections","level":"1.4.3","depth":2,"path":"windows/network.md","ref":"windows/network.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"windows/extract.md","mtime":"2019-10-07T16:06:30.628Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-23T01:11:17.817Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Monitor Network Traffic","level":"1.7.4","depth":2,"next":{"title":"Extract Data for Further Analysis","level":"1.7.5","depth":2,"path":"ios/extract.md","ref":"ios/extract.md","articles":[]},"previous":{"title":"Check for Jailbreaks","level":"1.7.3","depth":2,"path":"ios/jailbreaks.md","ref":"ios/jailbreaks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ios/network.md","mtime":"2019-10-22T21:41:30.908Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-23T01:11:17.817Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
