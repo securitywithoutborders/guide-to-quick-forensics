@@ -8,6 +8,8 @@ Checking if an iOS device has unwanted iCloud accounts can be trivially done by 
 
 Obviously, if attackers have managed to steal the credentials to the legitimate iCloud account of the device owner, it is not necessary for them to add an additional account to the phone, leaving no visible trace. This is also [a common tactic](https://www.vice.com/en_us/article/4xpgnj/paranoid-spouses-can-spy-on-partners-ios-10-devices-with-icloud-backups). In this case, a potential check to perform is to look for any unrecognized device that appear to be enabled on the existing account. [Here are instructions on how to review connected devices](https://support.apple.com/en-us/HT205064).
 
-![](../img/icloud.jpg)
+<center>
+<img src="../img/icloud.jpg" style="max-width:40%"/>
+</center>
 
 *Image from Apple*
