@@ -556,10 +556,55 @@
                                 
                                 <h1 id="check-for-jailbreaks">Check for Jailbreaks</h1>
 <p>In order to install spyware on an iOS device, attackers need to exploit vulnerabilities in the operating system. Apple has made this task significantly harder over the years, and such exploits have become more difficult and more expensive to produce. Remote Exploits (attacking, for example, <a href="https://www.engadget.com/2019/05/13/whatsapp-call-exploit-allowed-spyware" target="_blank">WhatsApp</a>, iMessage or Safari) are particularly rare and costly, and are only accessible to resourceful attackers, typically governments. In the case that an iOS device was indeed compromised with a private, commercial-grade sophisticated exploit, it is likely the case that the only check you can perform is of the outgoing <a href="../network.md">network traffic</a>.</p>
-<p>Jailbreaks are exploits for mobile devices, in this case iPhones and iPads, that are typically installed manually on the phone and which disable certain security features of iOS. New <a href="http://theiphonewiki.com/wiki/jailbreak" target="_blank">jailbreaks are regularly made available to the public</a> and attackers might use them if the target devices are of the right model and version of iOS. At the time of writing, there are public jailbreaks available for iOS up to version 12.2.</p>
+<p>Jailbreaks are exploits for mobile devices, in this case iPhones and iPads, that are typically installed manually on the phone and which disable certain security features of iOS. New <a href="http://theiphonewiki.com/wiki/jailbreak" target="_blank">jailbreaks are regularly made available to the public</a> and attackers might use them if the target devices are of the right model and version of iOS. At the time of writing, there are public jailbreaks available for iOS up to version 12.4.</p>
 <p>Because regular users typically would not (and should not) install jailbreaks on their iPhones and iPads, if the device you are testing shows appears jailbroken it is a very credible sign of a potential compromise. Following are some of the traces that might be left behind by a public jailbreak.</p>
 <h2 id="look-for-any-jailbreak-related-applications-icons">Look for any jailbreak-related applications icons</h2>
+<p>During the process of jailbreaking the phone, several applications are often installed, either to jailbreak the phone (like <a href="https://github.com/pwn20wndstuff/Undecimus" target="_blank">unc0ver</a> or <a href="https://chimera.sh/" target="_blank">Chimera</a>) or to install applications (such as <a href="https://cydia.saurik.com/" target="_blank">Cydia</a> or <a href="https://getsileo.app/" target="_blank">Sileo</a>). A first step to identify a jailbroken iPhone is to check for one of these apps on the phone :</p>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Logo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cydia</td>
+<td><img src="../img/cydia.png" alt="image"></td>
+</tr>
+<tr>
+<td>Sileo</td>
+<td><img src="../img/sileo.png" alt="image"></td>
+</tr>
+<tr>
+<td>unc0ver</td>
+<td><img src="../img/unc0ver.png" alt="image"></td>
+</tr>
+<tr>
+<td>Chrimera</td>
+<td><img src="../img/chimera.png" alt="image"></td>
+</tr>
+<tr>
+<td>Electra</td>
+<td><img src="../img/electra.png" alt="image"></td>
+</tr>
+</tbody>
+</table>
 <h2 id="scan-the-phone-for-open-ports">Scan the phone for open ports</h2>
+<p>Many jailbreak tools install a ssh server by default during the operation. It is then possible to detect if the server is running by checking open ports on the iPhone from another computer on the same network.</p>
+<p>To do that, you first need to get the iPhone IP address, go Settings &gt; Wifi &gt; Your network, and get the value in the &quot;IP Address&quot; field (something like 192.168.0.1).</p>
+<p>From another computer on the same network, you need to use a port scanner such as <a href="https://nmap.org/" target="_blank">nmap</a> and scan the ports on the iPhone with it. For instance with nmap through command-line :</p>
+<pre><code># nmap 192.168.186.196
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-11-07 00:07 CET
+Nmap scan report for iPhoneRobert.lan (192.168.186.196)
+Host is up (0.0041s latency).
+Not shown: 998 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+62078/tcp open  iphone-sync
+
+Nmap done: 1 IP address (1 host up) scanned in 41.18 seconds
+</code></pre><p>In this scan, we see that ssh is running on port 22 (its default port), so it means that the iphone is jailbroken.</p>
 <h2 id="try-to-mount-the-full-filesystem">Try to mount the full filesystem</h2>
 
                                 
@@ -604,7 +649,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Check for Jailbreaks","level":"1.7.3","depth":2,"next":{"title":"Monitor Network Traffic","level":"1.7.4","depth":2,"path":"ios/network.md","ref":"ios/network.md","articles":[]},"previous":{"title":"Check for Mobile Device Management Profiles","level":"1.7.2","depth":2,"path":"ios/mdm.md","ref":"ios/mdm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ios/jailbreaks.md","mtime":"2019-09-24T14:41:41.460Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-23T17:21:51.186Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Check for Jailbreaks","level":"1.7.3","depth":2,"next":{"title":"Monitor Network Traffic","level":"1.7.4","depth":2,"path":"ios/network.md","ref":"ios/network.md","articles":[]},"previous":{"title":"Check for Mobile Device Management Profiles","level":"1.7.2","depth":2,"path":"ios/mdm.md","ref":"ios/mdm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ios/jailbreaks.md","mtime":"2019-11-06T23:21:54.168Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-06T23:22:01.015Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
