@@ -1,6 +1,8 @@
 # Extract Data for Further Analysis
 
-[libimobiledevice](http://www.libimobiledevice.org/) is a cross-platform software library that allows to interact with iOS devices.
+[libimobiledevice](http://www.libimobiledevice.org/) is a cross-platform software library that allows to interact with iOS devices. It can be used to perform a backup of the iPhone data, which may provide interesting data for a forensic analysis.
+
+**Unlike other solutions presented in this guide, this backup will extract all the user data from the different applications and thus contains a lot of private information from the user (photos, messages etc.). Be mindful of what you do with it, and make sure the device owner consent to this extraction and to what is done with the data.**
 
 ## Install
 

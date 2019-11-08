@@ -42,3 +42,25 @@ Nmap done: 1 IP address (1 host up) scanned in 41.18 seconds
 In this scan, we see that ssh is running on port 22 (its default port), so it means that the iphone is jailbroken.
 
 ## Try to mount the full filesystem
+
+In many cases, jailbreaking the device will also install by default the AFC2 service that allows to mount the root filesystem from an external computer connected through USB. You can test if the root filesystem of the iPhone can be mounted by using the [ifuse](https://github.com/libimobiledevice/ifuse) tool.
+
+You first need to download the source code and install it on your Linux or MacOSX system as explained in [this page](https://github.com/libimobiledevice/ifuse/wiki).
+
+Once installed, you have to accept that the phone trust the computer and can just run `ifuse --root FOLDER`.
+
+If the phone is jailbroken with the AFC2 service running, the root filesystem will be mounted directly to the given folder :
+```
+> ifuse --root mount/
+> ls mount
+Applications  boot   dev        etc  lib      mnt      sbin    tmp   usr
+bin           cores  Developer  jb   Library  private  System  User  var
+```
+
+If the phone is not jailbroken or if AFC2 is not running on it, you will see the following error message :
+```
+> ifuse --root mount/
+Failed to start AFC service 'com.apple.afc2' on the device.
+This service enables access to the root filesystem of your device.
+Your device needs to be jailbroken and have the AFC2 service installed.
+```
