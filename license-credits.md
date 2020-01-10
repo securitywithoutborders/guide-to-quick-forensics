@@ -1,6 +1,6 @@
 # License and Credits
 
-The authors of this guide are:
+This guide is a collaboration between [Security Without Borders](https://securitywithoutborders.org/) and [Amnesty Tech](https://www.amnesty.org/en/tech/). The authors of this guide are:
 
 - [Claudio Guarnieri](https://nex.sx)
 - [Etienne Maynier](https://www.randhome.io/)
