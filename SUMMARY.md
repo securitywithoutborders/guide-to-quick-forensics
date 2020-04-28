@@ -30,4 +30,6 @@
   * [Check for Mobile Device Management Profiles](ios/mdm.md)
   * [Check for Jailbreaks](ios/jailbreaks.md)
   * [Extract Data for Further Analysis](ios/extract.md)
+* [Checking Devices Remotely](remote.md)
+  * [Mac Computers](remote/mac.md)
 * [License and Credits](license-credits.md)

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Backup · GitBook</title>
+        <title>Checking Devices Remotely · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="methodology.html" />
+    <link rel="next" href="remote/mac.html" />
     
     
-    <link rel="prev" href="trust.html" />
+    <link rel="prev" href="ios/extract.html" />
     
 
     </head>
@@ -142,7 +142,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.3" data-path="backup.html">
+        <li class="chapter " data-level="1.2.3" data-path="backup.html">
             
                 <a href="backup.html">
             
@@ -515,7 +515,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="remote.html">
+        <li class="chapter active" data-level="1.9" data-path="remote.html">
             
                 <a href="remote.html">
             
@@ -590,7 +590,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Backup</a>
+        <a href="." >Checking Devices Remotely</a>
     </h1>
 </div>
 
@@ -605,10 +605,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="backup">Backup</h1>
-<p>Although under normal circumstances it shouldn&apos;t happen, there&apos;s always the eventuality that some tools, while performing some aggressive checks, particularly on older or cluttered systems, might cause some instability and crashes. You should be prepared for this eventuality. It might also be the case that if you find the device to be infected, you might want to safekeep it and the owner will want to recover some data.</p>
-<p>It is advisable that before proceeding with the inspection you make sure the owner is aware of any risk of data loss, and that all steps have been taken to preserve at the very least the most critical files. Of course, a full and secure backup of the system is a much more preferable option, but circumstances and time do not always allow for that.</p>
-<p>Along with a USB drive with the collection of tools you might need for the inspection, you should consider always carrying an extra drive with you (perhaps with <a href="https://www.veracrypt.fr/" target="_blank">VeraCrypt</a> or any other file encryption utility you prefer) to be used in case you need to preserve some files from the device.</p>
+                                <h1 id="checking-devices-remotely">Checking Devices Remotely</h1>
+<p>In this time of almost worldwide confinement, we are adding here a few steps that may help to check for potentially compromised devices remotely. It includes for now only solutions for Windows and Mac OS computers using <a href="https://www.teamviewer.com/en/" target="_blank">Teamviewer</a> and <a href="https://remotedesktop.google.com/" target="_blank">Chrome Remote Desktop</a>, as we do not have yet any satisfying solution for smartphones (any suggestion <a href="https://github.com/securitywithoutborders/guide-to-quick-forensics/issues" target="_blank">is welcome</a>).</p>
+<h2 id="limitations-of-remote-forensic">Limitations of Remote Forensic</h2>
+<h3 id="the-problem-of-trust">The Problem of Trust</h3>
+<p>With any remote desktop solution relying on a third party platform, there is an important question of trust. When you install such a remote desktop software, you have to know that the company developing the solution can use the software to access your computer but also can record any interaction you have through their solution. It is thus very important use a solution that you trust based on your threat model.</p>
+<p>In this guide we use two software :</p>
+<ul>
+<li><a href="https://www.teamviewer.com/en/" target="_blank">Teamviewer</a> is a developed by TeamViewer AG, a German company based in G&#xF6;ppingen.</li>
+<li><a href="https://remotedesktop.google.com/" target="_blank">Chrome Remote Desktop</a> is developed by Google and is integrated in the Google ecosystem (which requires you to use Google accounts).</li>
+</ul>
+<p>Teamviewer had several security issues in the past, the FireEye company claimed that it was breached by a <a href="https://www.securitynewspaper.com/2019/10/14/fireeye-confirms-that-apt14-group-hacked-teamviewer-attackers-would-have-accessed-billions-of-devices/" target="_blank">Chinese state-sponsored group in October 2019</a>. We tend to trust more Google for its security, but depending on your threat model, Teamviewer may be a better option. We are using Teamviewer for Windows here because Chrome Remote Desktop does not support well Mac OS yet (no file sharing).</p>
+<h3 id="the-problem-of-needing-online-access">The Problem of Needing Online Access</h3>
+<p>Another issue with checking devices remotely is that you need the device to have access to Internet. As <a href="safety.html">explained before</a>, this can lead to some risks for the user. If the device is actually compromised and monitored remotely, the operators may identify that the user is receiving technical support and it may cause retaliation against the person you are trying to support.</p>
+<p>You should make sure to address that risk before doing any remote support.</p>
+<h2 id="some-information-on-the-process">Some Information on the Process</h2>
+<p>In order to schedule the check of a device remotely, you need to exchange beforehand with the person to let them know that :</p>
+<ul>
+<li>They will have to install a remote desktop software before</li>
+<li>They will have to stay in front of the computer during the check to enter the admin password (a check often last between 30 minutes and an hour)</li>
+<li>They will have to remove the remote desktop software after</li>
+</ul>
+<p>Please keep in mind that <a href="trust.html">trust</a> is a key part of any security support, so you should make sure that the process is clear for the person you are supporting and that they consent to it.</p>
 
                                 
                                 </section>
@@ -636,12 +654,12 @@
 
             
                 
-                <a href="trust.html" class="navigation navigation-prev " aria-label="Previous page: Trust">
+                <a href="ios/extract.html" class="navigation navigation-prev " aria-label="Previous page: Extract Data for Further Analysis">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="methodology.html" class="navigation navigation-next " aria-label="Next page: Methodology">
+                <a href="remote/mac.html" class="navigation navigation-next " aria-label="Next page: Mac Computers">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -652,7 +670,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backup","level":"1.2.3","depth":2,"next":{"title":"Methodology","level":"1.3","depth":1,"path":"methodology.md","ref":"methodology.md","articles":[]},"previous":{"title":"Trust","level":"1.2.2","depth":2,"path":"trust.md","ref":"trust.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"backup.md","mtime":"2020-01-13T19:36:46.237Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-28T15:31:36.758Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Checking Devices Remotely","level":"1.9","depth":1,"next":{"title":"Mac Computers","level":"1.9.1","depth":2,"path":"remote/mac.md","ref":"remote/mac.md","articles":[]},"previous":{"title":"Extract Data for Further Analysis","level":"1.8.4","depth":2,"path":"ios/extract.md","ref":"ios/extract.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"remote.md","mtime":"2020-04-28T15:30:20.679Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-28T15:31:36.758Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
